@@ -1,0 +1,153 @@
+// extends
+
+.btn-more{
+	background-color: white;
+}
+
+
+#productos .galeria figure figcaption{
+	@extend .btn-more;
+	font-size: $fontFig;
+    color: $keycolor;
+    padding: 10px 0;
+}
+
+#productos .galeria p .price{
+	@extend .btn-more;
+	color: $grey;
+    padding-bottom: 10px;
+}
+
+.secondNav{
+	@extend .btn-more;
+	color: $secondNav;
+    padding: 5px;
+    font-size: $fontGrid;
+    line-height: $fontHei; 
+}
+
+
+//mixins
+@mixin texto($width, $height, $padding, $margin, $border, $overflow){
+	width: $width;
+	height: $height;
+	padding: $padding;
+	margin: $margin;
+	border: $border;
+	overflow: $overflow;
+}
+
+.nosotros__titulo--md{
+	@include texto(80%, auto, 50px, 50px auto, dotted $mainColor 10px, auto);
+	
+}
+
+.nosotros__index--sm{
+	@include texto(15%, auto, 30px, 10px auto, dotted $mainColor 10px, auto);
+	
+}
+
+.nosotros__index--md{
+	@include texto(90%, auto, 60px, 30px auto, 20px dotted $mainColor, auto);
+	
+}
+
+.bg-white{
+	@include texto(30%, auto, 5px, 20px auto, dotted $mainColor 5px, auto);
+	background-color: $white;
+}
+
+
+
+@mixin text($text, $font, $box){
+	text-align: $text;
+	font-size: $font;
+	box-sizing: $box;
+}
+
+.text-right{
+	@include text(right, 3rem, border-box)
+}
+
+.text-center{
+	@include text(center, 3rem, border-box)
+	margin: 30px auto;
+}
+
+
+
+
+.box{
+	@include flex(center, center);
+}
+
+
+
+@mixin text-align($align){
+	@if $align == center {text-align:center}
+	@else if $align == right {text-align:right}
+	@else if $align == left {text-align:left}
+}
+
+
+h2{
+	@include text-align(left);
+}
+
+//maps
+
+$paleta:(
+	'uno': white,
+    'dos': #C8B6CE,
+    'tres':#6B49C2,
+    'cuatro':#671265,
+    'cinco': darkviolet,
+    'seis': #DED5EA,
+    'siete':#5d4263,
+    'ocho':#636364,
+    'nueve':#161515);
+
+.text-black{
+	color: map-get($map:$paleta, $key:'nueve')
+	text-align center;
+}
+
+.bg-light{
+	background-color: map-get($map:$paleta, $key:'dos')
+}
+
+.bg-violet{
+	background-color: map-get($map:$paleta, $key:'uno')
+}
+
+.bg-violet{
+	background-color: map-get($map:$paleta, $key:'uno')
+
+
+
+
+
+// math
+
+
+// condicionales 
+
+
+
+// bucle evolucionado
+
+@each $icono in facebook, instagram, whatsapp{
+	.#{$icono}-icon{
+     background-image:url(../img/#{$icono}.webp);
+     width: 30px;
+	 height: 60px;
+	 background-size:100%;
+	 list-style: none;
+	 margin-right: 6px;
+
+}
+
+
+
+
+
